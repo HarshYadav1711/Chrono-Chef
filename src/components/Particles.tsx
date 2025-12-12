@@ -21,7 +21,7 @@ interface ParticlesProps {
 export function Particles({ x, y, color = '#4A90E2', count = 20, onComplete }: ParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [particles, setParticles] = useState<Particle[]>([])
-  const animationFrameRef = useRef<number | undefined>()
+  const _animationFrameRef = useRef<number | undefined>()
 
   useEffect(() => {
     // Initialize particles

@@ -213,7 +213,7 @@ export function Timeline({
                 taskName={taskDef?.name || task.taskId}
                 isActive={isActive}
                 isSelected={isSelected}
-                onDragEnd={(updatedTask, newX, newY) => {
+                onDragEnd={(_updatedTask, newX, newY) => {
                   const adjustedX = (newX - panX) / zoom
                   const adjustedY = newY
                   const newStartTime = xToTime(adjustedX)

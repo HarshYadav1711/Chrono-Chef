@@ -14,7 +14,7 @@ import { Tutorial } from './components/Tutorial'
 import { TutorialButton } from './components/TutorialButton'
 import { TutorialMenu } from './components/TutorialMenu'
 import { saveSchedule, loadSchedule } from './utils/storage'
-import { timeToX } from './utils/timeline'
+import { timeToX, laneIndexToY } from './utils/timeline'
 import { STATIONS } from './types'
 import { useTutorial } from './hooks/useTutorial'
 import { useUpgrades } from './hooks/useUpgrades'
@@ -27,7 +27,6 @@ import { UpgradesPanel } from './components/UpgradesPanel'
 import { AchievementsPanel } from './components/AchievementsPanel'
 import { ReplayPanel } from './components/ReplayPanel'
 import { LeaderboardPanel } from './components/LeaderboardPanel'
-import { isPWAInstalled, isOnline } from './utils/pwa'
 
 function App() {
   const [recipes] = useState<Recipe[]>(recipesData as Recipe[])
@@ -221,7 +220,9 @@ function App() {
         }
 
         // Award money based on score
-        setMoney(prev => prev + Math.floor(simulation.report.finalScore))
+        if (simulation.report) {
+          setMoney(prev => prev + Math.floor(simulation.report.finalScore))
+        }
         
         sound.playSound('simulation_end').catch(() => {}) // Ignore errors
       }
