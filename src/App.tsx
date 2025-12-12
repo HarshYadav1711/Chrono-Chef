@@ -221,7 +221,8 @@ function App() {
 
         // Award money based on score
         if (simulation.report) {
-          setMoney(prev => prev + Math.floor(simulation.report.finalScore))
+          const report = simulation.report
+          setMoney(prev => prev + Math.floor(report.finalScore))
         }
         
         sound.playSound('simulation_end').catch(() => {}) // Ignore errors
@@ -273,8 +274,8 @@ function App() {
   // Update completed/failed orders from simulation report
   useEffect(() => {
     if (simulation.report && simulation.report.taskEvents && simulation.report.events) {
-      const completed = new Set<number>()
-      const failed = new Set<number>()
+      const completed: Set<number> = new Set<number>()
+      const failed: Set<number> = new Set<number>()
       
       // Extract order IDs from task events
       (simulation.report.taskEvents || []).forEach((event: any) => {
@@ -297,12 +298,12 @@ function App() {
       })
 
       // Check failed orders from events
-      const previousCompleted = new Set(completedOrders)
-      const previousFailed = new Set(failedOrders)
+      const previousCompleted: Set<number> = new Set(completedOrders)
+      const previousFailed: Set<number> = new Set(failedOrders)
       
       // Track if we've played order sounds to avoid duplicates
-      let orderCompletePlayed = false
-      let orderFailedPlayed = false
+      let orderCompletePlayed: boolean = false
+      let orderFailedPlayed: boolean = false
       
       (simulation.report.events || []).forEach((event: any) => {
         if (event.type === 'order_failed') {

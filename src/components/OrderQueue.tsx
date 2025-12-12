@@ -22,7 +22,7 @@ export function OrderQueue({
   onCancel: _onCancel,
   canReorder = false
 }: OrderQueueProps) {
-  const [draggedIndex, setDraggedIndex] = React.useState<number | null>(null)
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null)
   return (
     <div 
       className="order-queue"
