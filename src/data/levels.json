@@ -1,0 +1,69 @@
+[
+  {
+    "id": "tutorial",
+    "name": "Tutorial",
+    "description": "Learn the basics with simple orders",
+    "orders": [
+      {"recipeId": "omelette", "arrivalTime": 0, "patience": 60},
+      {"recipeId": "fries", "arrivalTime": 30, "patience": 90}
+    ],
+    "stations": {
+      "prep": 1,
+      "stove": 1,
+      "oven": 0,
+      "fryer": 1,
+      "blender": 0,
+      "plating": 1
+    },
+    "timeLimit": 120,
+    "targetScore": 15
+  },
+  {
+    "id": "rush_hour",
+    "name": "Rush Hour",
+    "description": "Handle 5 concurrent customers with station conflicts",
+    "orders": [
+      {"recipeId": "burger", "arrivalTime": 0, "patience": 45},
+      {"recipeId": "fries", "arrivalTime": 5, "patience": 50},
+      {"recipeId": "omelette", "arrivalTime": 10, "patience": 40},
+      {"recipeId": "smoothie", "arrivalTime": 15, "patience": 55},
+      {"recipeId": "burger", "arrivalTime": 20, "patience": 50}
+    ],
+    "stations": {
+      "prep": 2,
+      "stove": 2,
+      "oven": 0,
+      "fryer": 1,
+      "blender": 1,
+      "plating": 1
+    },
+    "timeLimit": 180,
+    "targetScore": 50
+  },
+  {
+    "id": "banquet",
+    "name": "Banquet",
+    "description": "8+ dishes with complex timing and long-duration tasks",
+    "orders": [
+      {"recipeId": "pasta", "arrivalTime": 0, "patience": 120},
+      {"recipeId": "burger", "arrivalTime": 10, "patience": 80},
+      {"recipeId": "pasta", "arrivalTime": 20, "patience": 100},
+      {"recipeId": "omelette", "arrivalTime": 30, "patience": 60},
+      {"recipeId": "fries", "arrivalTime": 35, "patience": 70},
+      {"recipeId": "smoothie", "arrivalTime": 40, "patience": 65},
+      {"recipeId": "burger", "arrivalTime": 50, "patience": 75},
+      {"recipeId": "pasta", "arrivalTime": 60, "patience": 110}
+    ],
+    "stations": {
+      "prep": 3,
+      "stove": 3,
+      "oven": 1,
+      "fryer": 2,
+      "blender": 1,
+      "plating": 2
+    },
+    "timeLimit": 300,
+    "targetScore": 120
+  }
+]
+

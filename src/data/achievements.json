@@ -1,0 +1,60 @@
+[
+  {
+    "id": "first_win",
+    "name": "First Victory",
+    "description": "Complete your first level",
+    "icon": "🏆",
+    "unlocked": false
+  },
+  {
+    "id": "speed_run_30",
+    "name": "Speed Demon",
+    "description": "Complete a level in under 30 seconds",
+    "icon": "⚡",
+    "unlocked": false,
+    "progress": 0,
+    "target": 30
+  },
+  {
+    "id": "perfect_order",
+    "name": "Perfect Service",
+    "description": "Complete a level with no failed orders",
+    "icon": "✨",
+    "unlocked": false
+  },
+  {
+    "id": "high_score_100",
+    "name": "High Roller",
+    "description": "Score over 100 points in a single run",
+    "icon": "💯",
+    "unlocked": false,
+    "progress": 0,
+    "target": 100
+  },
+  {
+    "id": "efficiency_90",
+    "name": "Efficiency Expert",
+    "description": "Achieve 90%+ efficiency rating",
+    "icon": "📊",
+    "unlocked": false,
+    "progress": 0,
+    "target": 90
+  },
+  {
+    "id": "combo_5",
+    "name": "Combo Master",
+    "description": "Complete 5 orders in quick succession",
+    "icon": "🔥",
+    "unlocked": false,
+    "progress": 0,
+    "target": 5
+  },
+  {
+    "id": "no_failures",
+    "name": "Flawless",
+    "description": "Complete a level with zero failures",
+    "icon": "💎",
+    "unlocked": false
+  }
+]
+

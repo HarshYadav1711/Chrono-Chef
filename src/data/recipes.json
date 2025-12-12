@@ -1,0 +1,61 @@
+[
+  {
+    "id": "omelette",
+    "name": "Cheese Omelette",
+    "difficulty": 1,
+    "price": 5,
+    "tasks": [
+      {"id": "crack", "name": "Crack Eggs", "station": "prep", "duration": 5, "dependencies": []},
+      {"id": "beat", "name": "Beat Eggs", "station": "prep", "duration": 3, "dependencies": ["crack"]},
+      {"id": "cook", "name": "Cook Omelette", "station": "stove", "duration": 10, "dependencies": ["beat"]},
+      {"id": "plate", "name": "Plate", "station": "plating", "duration": 2, "dependencies": ["cook"]}
+    ]
+  },
+  {
+    "id": "burger",
+    "name": "Classic Burger",
+    "difficulty": 2,
+    "price": 8,
+    "tasks": [
+      {"id": "form", "name": "Form Patty", "station": "prep", "duration": 4, "dependencies": []},
+      {"id": "cook_patty", "name": "Cook Patty", "station": "stove", "duration": 12, "dependencies": ["form"]},
+      {"id": "toast_bun", "name": "Toast Bun", "station": "stove", "duration": 3, "dependencies": []},
+      {"id": "assemble", "name": "Assemble Burger", "station": "plating", "duration": 5, "dependencies": ["cook_patty", "toast_bun"]}
+    ]
+  },
+  {
+    "id": "fries",
+    "name": "Crispy Fries",
+    "difficulty": 1,
+    "price": 4,
+    "tasks": [
+      {"id": "cut", "name": "Cut Potatoes", "station": "prep", "duration": 8, "dependencies": []},
+      {"id": "fry", "name": "Fry Potatoes", "station": "fryer", "duration": 15, "dependencies": ["cut"]},
+      {"id": "season", "name": "Season", "station": "plating", "duration": 2, "dependencies": ["fry"]}
+    ]
+  },
+  {
+    "id": "smoothie",
+    "name": "Berry Smoothie",
+    "difficulty": 1,
+    "price": 6,
+    "tasks": [
+      {"id": "prep_fruit", "name": "Prep Fruit", "station": "prep", "duration": 5, "dependencies": []},
+      {"id": "blend", "name": "Blend", "station": "blender", "duration": 8, "dependencies": ["prep_fruit"]},
+      {"id": "pour", "name": "Pour & Serve", "station": "plating", "duration": 2, "dependencies": ["blend"]}
+    ]
+  },
+  {
+    "id": "pasta",
+    "name": "Creamy Pasta",
+    "difficulty": 3,
+    "price": 12,
+    "tasks": [
+      {"id": "boil_water", "name": "Boil Water", "station": "stove", "duration": 10, "dependencies": []},
+      {"id": "cook_pasta", "name": "Cook Pasta", "station": "stove", "duration": 12, "dependencies": ["boil_water"]},
+      {"id": "make_sauce", "name": "Make Sauce", "station": "stove", "duration": 15, "dependencies": []},
+      {"id": "combine", "name": "Combine & Plate", "station": "plating", "duration": 4, "dependencies": ["cook_pasta", "make_sauce"]}
+    ]
+  }
+]
+

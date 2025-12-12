@@ -1,0 +1,35 @@
+[
+  {
+    "station": "prep",
+    "level": 1,
+    "capacityIncrease": 1,
+    "cost": 50,
+    "name": "Extra Prep Station",
+    "description": "Add one more prep station"
+  },
+  {
+    "station": "stove",
+    "level": 1,
+    "capacityIncrease": 1,
+    "cost": 100,
+    "name": "Extra Stove",
+    "description": "Add one more stove"
+  },
+  {
+    "station": "fryer",
+    "level": 1,
+    "capacityIncrease": 1,
+    "cost": 75,
+    "name": "Extra Fryer",
+    "description": "Add one more fryer"
+  },
+  {
+    "station": "plating",
+    "level": 1,
+    "capacityIncrease": 1,
+    "cost": 60,
+    "name": "Extra Plating Station",
+    "description": "Add one more plating station"
+  }
+]
+
