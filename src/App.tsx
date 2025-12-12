@@ -274,8 +274,8 @@ function App() {
   // Update completed/failed orders from simulation report
   useEffect(() => {
     if (simulation.report && simulation.report.taskEvents && simulation.report.events) {
-      const completed: Set<number> = new Set()
-      const failed: Set<number> = new Set()
+      const completed = new Set<number>()
+      const failed = new Set<number>()
       
       // Extract order IDs from task events
       (simulation.report.taskEvents || []).forEach((event: any) => {
@@ -298,8 +298,8 @@ function App() {
       })
 
       // Check failed orders from events
-      const previousCompleted = new Set<number>([...completedOrders])
-      const previousFailed = new Set<number>([...failedOrders])
+      const previousCompleted = new Set(Array.from(completedOrders))
+      const previousFailed = new Set(Array.from(failedOrders))
       
       // Track if we've played order sounds to avoid duplicates
       let orderCompletePlayed = false
@@ -340,8 +340,8 @@ function App() {
         }
       })
 
-      setCompletedOrders(completed)
-      setFailedOrders(failed)
+      setCompletedOrders(new Set(completed))
+      setFailedOrders(new Set(failed))
     }
   }, [simulation.report, timeline.scheduledTasks, sound, particles])
 
