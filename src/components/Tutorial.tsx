@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import type { TutorialStep } from '../types/tutorial'
 
 interface TutorialHookReturn {
@@ -69,7 +69,7 @@ export function Tutorial({ tutorial, onActionComplete }: TutorialProps) {
       const targetElement = document.querySelector(step.target!)
       if (!targetElement) {
         // Try finding by class name without the dot
-        const className = step.target.replace('.', '')
+        const className = step.target?.replace('.', '') || ''
         const elements = document.getElementsByClassName(className)
         if (elements.length > 0) {
           updateHighlight(elements[0] as HTMLElement)

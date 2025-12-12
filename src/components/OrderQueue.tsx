@@ -1,5 +1,4 @@
-import React from 'react'
-import type { Order, Recipe, Level } from '../types'
+import type { Recipe, Level } from '../types'
 
 interface OrderQueueProps {
   level: Level
@@ -19,7 +18,7 @@ export function OrderQueue({
   completedOrders = new Set(),
   failedOrders = new Set(),
   onReorder,
-  onCancel,
+  onCancel: _onCancel,
   canReorder = false
 }: OrderQueueProps) {
   const [draggedIndex, setDraggedIndex] = React.useState<number | null>(null)

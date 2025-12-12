@@ -1,5 +1,3 @@
-import React from 'react'
-import type { TutorialStep } from '../types/tutorial'
 import { TUTORIAL_STEPS } from '../data/tutorial'
 
 interface TutorialMenuProps {

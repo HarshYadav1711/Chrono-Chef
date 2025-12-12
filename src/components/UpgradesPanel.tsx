@@ -1,4 +1,3 @@
-import React from 'react'
 import type { StationUpgrade } from '../types/upgrades'
 import type { Station } from '../types'
 

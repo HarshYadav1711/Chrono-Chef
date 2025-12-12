@@ -1,4 +1,3 @@
-import React from 'react'
 import type { Achievement } from '../types/achievements'
 
 interface AchievementsPanelProps {

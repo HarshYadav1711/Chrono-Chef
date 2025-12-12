@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import type { ScheduledTask } from '../types'
 
 /**
  * Undo/Redo hook for timeline state management

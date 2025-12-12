@@ -6,7 +6,7 @@ import type { TutorialStep } from '../types/tutorial'
 export function checkTutorialAction(step: TutorialStep): boolean {
   if (!step.action) return true
 
-  const { type, selector } = step.action
+  const { type } = step.action
 
   switch (type) {
     case 'click':

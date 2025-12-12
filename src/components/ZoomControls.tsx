@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface ZoomControlsProps {
   zoom: number
   panX: number
@@ -8,7 +6,7 @@ interface ZoomControlsProps {
   onReset: () => void
 }
 
-export function ZoomControls({ zoom, panX, onZoomChange, onPanChange, onReset }: ZoomControlsProps) {
+export function ZoomControls({ zoom, panX, onZoomChange, onReset }: ZoomControlsProps) {
   return (
     <div 
       className="zoom-controls"

@@ -1,4 +1,3 @@
-import React from 'react'
 import type { Recipe, Task } from '../types'
 
 interface RecipeBookProps {

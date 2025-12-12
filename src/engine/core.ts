@@ -4,7 +4,7 @@ import type { Station } from '../types'
  * Check if all dependencies for a task are completed
  */
 export function dependenciesDone(
-  taskId: string,
+  _taskId: string,
   dependencies: string[],
   completedTasks: Set<string>
 ): boolean {
@@ -41,7 +41,7 @@ export function acquireReleaseResource(
 export function computeScore(
   completedOrders: number,
   failedOrders: number,
-  totalOrders: number,
+  _totalOrders: number,
   timeBonus: number,
   basePrice: number
 ): number {

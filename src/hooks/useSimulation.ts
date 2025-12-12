@@ -32,7 +32,6 @@ export function useSimulation() {
     let time = 0
     const activeTasks = new Map<string, { endTime: number }>()
     const completedTasks = new Set<string>()
-    const stationOccupancy = new Map<any, number>()
 
     const tick = () => {
       if (time > level.timeLimit) {

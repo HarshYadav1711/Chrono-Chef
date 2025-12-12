@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 export type SoundType = 
   | 'task_start'
@@ -163,7 +163,6 @@ class SoundGenerator {
         // Stop any existing sounds first
         this.stopAllSounds()
         // Success chord - play sequentially with proper timing
-        const now = this.audioContext.currentTime
         this.playTone(523, 0.15, 'sine') // C
         setTimeout(() => {
           this.playTone(659, 0.15, 'sine') // E

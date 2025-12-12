@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { Stage, Layer, Rect, Text, Group, Line } from 'react-konva'
 import type { ScheduledTask, Station, Recipe } from '../types'
 import { STATIONS, STATION_COLORS, STATION_EMOJIS } from '../types'
@@ -53,10 +53,6 @@ export function Timeline({
   const draggingTask = externalDraggingTask
 
   const visibleWidth = width - TIMELINE_START_X
-  const maxTime = Math.max(
-    ...scheduledTasks.map(t => t.startTime + t.duration),
-    100
-  )
   const visibleTime = Math.ceil(visibleWidth / (SECOND_WIDTH * zoom))
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -97,7 +93,7 @@ export function Timeline({
       }
     }
 
-    setDraggingTask(null)
+    // Note: setDraggingTask is managed by parent component
     setDragPosition(null)
     setHoverLane(null)
   }, [draggingTask, onTaskDrop, panX, zoom])
@@ -251,7 +247,7 @@ export function Timeline({
                 y={dragPosition.y - 20}
                 width={draggingTask.task.duration * SECOND_WIDTH * zoom}
                 height={40}
-                fill={STATION_COLORS[draggingTask.task.station]}
+                fill={STATION_COLORS[draggingTask.task.station as Station]}
                 opacity={0.5}
                 stroke="#fff"
                 strokeWidth={2}

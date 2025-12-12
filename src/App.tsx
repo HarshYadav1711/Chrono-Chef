@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import recipesData from './data/recipes.json'
 import levelsData from './data/levels.json'
 import type { Recipe, Level, ScheduledTask, Station, Order } from './types'
@@ -14,7 +14,7 @@ import { Tutorial } from './components/Tutorial'
 import { TutorialButton } from './components/TutorialButton'
 import { TutorialMenu } from './components/TutorialMenu'
 import { saveSchedule, loadSchedule } from './utils/storage'
-import { timeToX, xToTime, laneIndexToY, yToLaneIndex } from './utils/timeline'
+import { timeToX } from './utils/timeline'
 import { STATIONS } from './types'
 import { useTutorial } from './hooks/useTutorial'
 import { useUpgrades } from './hooks/useUpgrades'
@@ -27,7 +27,6 @@ import { UpgradesPanel } from './components/UpgradesPanel'
 import { AchievementsPanel } from './components/AchievementsPanel'
 import { ReplayPanel } from './components/ReplayPanel'
 import { LeaderboardPanel } from './components/LeaderboardPanel'
-import { Particles } from './components/Particles'
 import { isPWAInstalled, isOnline } from './utils/pwa'
 
 function App() {
@@ -45,7 +44,7 @@ function App() {
   const [replayPanelOpen, setReplayPanelOpen] = useState(false)
   const [leaderboardPanelOpen, setLeaderboardPanelOpen] = useState(false)
   const [money, setMoney] = useState(100)
-  const [playerName, setPlayerName] = useState('Player')
+  const [playerName] = useState('Player')
   const [orderQueue, setOrderQueue] = useState<Order[]>([])
 
   const timeline = useTimeline()
@@ -57,8 +56,6 @@ function App() {
   const leaderboard = useLeaderboard()
   const sound = useSound()
   const particles = useParticles()
-  const [isMobile, setIsMobile] = useState(false)
-  const [showPWAInstall, setShowPWAInstall] = useState(false)
 
   // Load saved schedule on mount
   useEffect(() => {
@@ -219,7 +216,9 @@ function App() {
         replay.saveReplay(timeline.scheduledTasks, upgradedLevel, simulation.report, 42, duration)
 
         // Add to leaderboard
-        leaderboard.addEntry(playerName, selectedLevel.id, simulation.report, duration, 42)
+        if (selectedLevel) {
+          leaderboard.addEntry(playerName, selectedLevel.id, simulation.report, duration, 42)
+        }
 
         // Award money based on score
         setMoney(prev => prev + Math.floor(simulation.report.finalScore))
@@ -277,17 +276,17 @@ function App() {
       const failed = new Set<number>()
       
       // Extract order IDs from task events
-      (simulation.report.taskEvents || []).forEach(event => {
+      (simulation.report.taskEvents || []).forEach((event: any) => {
         const match = event.taskId.match(/^(\d+)-/)
         if (match) {
           const orderId = parseInt(match[1])
           if (event.success) {
             // Check if all tasks for this order are complete
             const orderTasks = timeline.scheduledTasks.filter(t => t.orderId === orderId)
-            const completedTaskKeys = new Set(
+            const completedTaskKeys = new Set<string>(
               (simulation.report?.taskEvents || [])
-                .filter(e => e.success)
-                .map(e => e.taskId)
+                .filter((e: any) => e.success)
+                .map((e: any) => e.taskId)
             )
             if (orderTasks.every(t => completedTaskKeys.has(`${t.orderId}-${t.taskId}`))) {
               completed.add(orderId)
@@ -304,7 +303,7 @@ function App() {
       let orderCompletePlayed = false
       let orderFailedPlayed = false
       
-      (simulation.report.events || []).forEach(event => {
+      (simulation.report.events || []).forEach((event: any) => {
         if (event.type === 'order_failed') {
           const match = event.message.match(/Order (\d+)/)
           if (match) {
@@ -445,7 +444,7 @@ function App() {
                 style={{
                   padding: '8px',
                   marginBottom: '8px',
-                  background: selectedLevel.id === level.id ? '#4A90E2' : '#333',
+                  background: selectedLevel?.id === level.id ? '#4A90E2' : '#333',
                   borderRadius: '4px',
                   cursor: 'pointer',
                   transition: 'all 0.2s',

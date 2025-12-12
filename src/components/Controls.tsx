@@ -1,4 +1,3 @@
-import React from 'react'
 import type { SimulationMode } from '../hooks/useSimulation'
 
 interface ControlsProps {
@@ -39,9 +38,9 @@ export function Controls({
   onRedo,
   onSave,
   onLoad,
-  onUpgrades,
-  onReplays,
-  onLeaderboard,
+  onUpgrades: _onUpgrades,
+  onReplays: _onReplays,
+  onLeaderboard: _onLeaderboard,
   currentTime = 0,
   taskCount = 0,
   levelName = ''

@@ -2,28 +2,29 @@ import { dependenciesDone, acquireReleaseResource, computeScore } from '../engin
 import { simulateRun } from '../engine/simulation'
 import recipesData from '../data/recipes.json'
 import levelsData from '../data/levels.json'
+import type { Station } from '../types'
 
 describe('Simulation Engine', () => {
   describe('dependenciesDone', () => {
     it('should return true when all dependencies are completed', () => {
-      const completed = new Set(['task1', 'task2', 'task3'])
+      const completed = new Set<string>(['task1', 'task2', 'task3'])
       expect(dependenciesDone('task4', ['task1', 'task2'], completed)).toBe(true)
     })
 
     it('should return false when any dependency is missing', () => {
-      const completed = new Set(['task1'])
+      const completed = new Set<string>(['task1'])
       expect(dependenciesDone('task3', ['task1', 'task2'], completed)).toBe(false)
     })
 
     it('should return true when there are no dependencies', () => {
-      const completed = new Set()
+      const completed = new Set<string>()
       expect(dependenciesDone('task1', [], completed)).toBe(true)
     })
   })
 
   describe('acquireReleaseResource', () => {
-    const stationCounts = { prep: 2, stove: 1, oven: 0, fryer: 1, blender: 0, plating: 1 }
-    const occupancy = new Map<string, number>()
+    const stationCounts: Record<Station, number> = { prep: 2, stove: 1, oven: 0, fryer: 1, blender: 0, plating: 1 }
+    const occupancy = new Map<Station, number>()
 
     beforeEach(() => {
       occupancy.clear()

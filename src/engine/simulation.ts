@@ -12,7 +12,7 @@ export function simulateRun(
   level: Level,
   seed: number = 0
 ): RunReport {
-  const rng = mulberry32(seed)
+  const _rng = mulberry32(seed) // Initialize RNG with seed (stored but not used directly)
   const state = {
     currentTime: 0,
     activeTasks: new Map<string, { taskId: string; endTime: number; station: any }>(),

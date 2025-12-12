@@ -1,4 +1,4 @@
-import type { ScheduledTask, Station } from '../types'
+import type { ScheduledTask } from '../types'
 
 export const SECOND_WIDTH = 4
 export const LANE_HEIGHT = 80

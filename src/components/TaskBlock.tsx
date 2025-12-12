@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Group, Rect, Text, Circle } from 'react-konva'
-import type { ScheduledTask, Station } from '../types'
-import { STATION_COLORS, STATION_EMOJIS } from '../types'
+import type { ScheduledTask } from '../types'
+import { STATION_COLORS } from '../types'
 import { SECOND_WIDTH, LANE_HEIGHT } from '../utils/timeline'
 
 interface TaskBlockProps {

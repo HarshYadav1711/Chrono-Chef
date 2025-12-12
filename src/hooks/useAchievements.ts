@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import type { Achievement, AchievementType } from '../types/achievements'
+import type { Achievement } from '../types/achievements'
 import achievementsData from '../data/achievements.json'
 import type { RunReport } from '../types'
 

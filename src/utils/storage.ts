@@ -1,4 +1,4 @@
-import type { ScheduledTask, Level } from '../types'
+import type { ScheduledTask } from '../types'
 
 const STORAGE_KEY = 'chrono-chef-schedule'
 

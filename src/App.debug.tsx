@@ -1,5 +1,4 @@
 // Debug version - minimal app to test rendering
-import React from 'react'
 
 export default function AppDebug() {
   console.log('AppDebug rendering')

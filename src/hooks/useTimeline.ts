@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
-import type { ScheduledTask, Recipe, Station } from '../types'
+import type { ScheduledTask, Recipe } from '../types'
 import { STATIONS } from '../types'
-import { timeToX, xToTime, laneIndexToY, yToLaneIndex } from '../utils/timeline'
+import { timeToX, laneIndexToY } from '../utils/timeline'
 import { useHistory } from './useHistory'
 
 export function useTimeline() {

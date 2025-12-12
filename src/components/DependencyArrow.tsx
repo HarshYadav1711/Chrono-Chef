@@ -1,4 +1,3 @@
-import React from 'react'
 import { Arrow } from 'react-konva'
 import type { ScheduledTask } from '../types'
 import { SECOND_WIDTH, LANE_HEIGHT, TIMELINE_START_X, TIMELINE_START_Y } from '../utils/timeline'

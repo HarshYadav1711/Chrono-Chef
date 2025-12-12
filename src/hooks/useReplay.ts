@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react'
 import type { ReplayData } from '../types/replay'
 import type { ScheduledTask, Level } from '../types'
-import { simulateRun } from '../engine/simulation'
 
 export function useReplay() {
   const [replays, setReplays] = useState<ReplayData[]>(() => {

@@ -1,4 +1,4 @@
-import type { ScheduledTask, Level, RunReport } from './index'
+import type { ScheduledTask, RunReport } from './index'
 
 export interface ReplayData {
   id: string
