@@ -1,7 +1,8 @@
 // PWA utilities
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    // Use requestIdleCallback if available, otherwise use setTimeout to avoid blocking
+    const register = () => {
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
@@ -10,7 +11,14 @@ export function registerServiceWorker() {
         .catch((error) => {
           console.log('SW registration failed:', error)
         })
-    })
+    }
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(register, { timeout: 2000 })
+    } else {
+      // Fallback: register after a short delay to avoid blocking initial render
+      setTimeout(register, 100)
+    }
   }
 }
 

@@ -70,10 +70,13 @@ function App() {
     // Check if tutorial has been completed before
     const tutorialCompleted = localStorage.getItem('chrono-chef-tutorial-completed')
     if (!tutorialCompleted) {
-      // Auto-start tutorial for first-time users after a short delay
+      // Auto-start tutorial for first-time users after a delay
+      // Use longer delay on mobile to ensure app is fully loaded
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      const delay = isMobile ? 2000 : 1000
       setTimeout(() => {
         tutorial.start()
-      }, 1000)
+      }, delay)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -503,8 +506,8 @@ function App() {
             onTaskClick={handleTaskClick}
             onTaskResize={handleTaskResize}
             showDependencies={true}
-            width={typeof window !== 'undefined' ? window.innerWidth - 400 : 1200}
-            height={600}
+            width={typeof window !== 'undefined' ? Math.max(300, window.innerWidth - 400) : 1200}
+            height={typeof window !== 'undefined' ? Math.min(600, window.innerHeight - 200) : 600}
           />
         </div>
 

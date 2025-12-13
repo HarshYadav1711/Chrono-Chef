@@ -44,8 +44,8 @@ export function Timeline({
   onTaskClick,
   onTaskResize,
   showDependencies = true,
-  width = typeof window !== 'undefined' ? window.innerWidth - 400 : 1200,
-  height = 600
+  width = typeof window !== 'undefined' ? Math.max(300, window.innerWidth - 400) : 1200,
+  height = typeof window !== 'undefined' ? Math.min(600, window.innerHeight - 200) : 600
 }: TimelineProps) {
   const stageRef = useRef<any>(null)
   const [dragPosition, setDragPosition] = useState<{ x: number; y: number } | null>(null)
@@ -129,6 +129,18 @@ export function Timeline({
         width={width}
         height={height}
         onMouseMove={(e) => {
+          if (draggingTask) {
+            const pos = e.target.getStage()?.getPointerPosition()
+            if (pos) {
+              setDragPosition(pos)
+              const y = pos.y - TIMELINE_START_Y
+              const laneIndex = yToLaneIndex(y)
+              setHoverLane(laneIndex >= 0 && laneIndex < STATIONS.length ? laneIndex : null)
+            }
+          }
+        }}
+        onTouchMove={(e) => {
+          // Handle touch move for mobile
           if (draggingTask) {
             const pos = e.target.getStage()?.getPointerPosition()
             if (pos) {

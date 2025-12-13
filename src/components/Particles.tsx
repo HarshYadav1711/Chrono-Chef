@@ -41,8 +41,10 @@ export function Particles({ x, y, color = '#4A90E2', count = 20, onComplete }: P
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    // Ensure canvas dimensions are valid (prevent issues on mobile)
+    const maxDimension = 4096 // Some mobile devices have limits
+    canvas.width = Math.min(window.innerWidth || 800, maxDimension)
+    canvas.height = Math.min(window.innerHeight || 600, maxDimension)
 
     let animationId: number
 
